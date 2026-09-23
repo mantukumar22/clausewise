@@ -1,0 +1,1 @@
+export { DisclaimerBanner } from '../DisclaimerBanner';

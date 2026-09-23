@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --background: #FAF8F5;
+    --surface: #FFFFFF;
+    --surface-muted: #F3F0EA;
+    --border: #E4DFD6;
+    --text: #1B2430;
+    --text-muted: #5B6572;
+    --primary: #1F5F5B;
+    --primary-foreground: #FFFFFF;
+    --primary-soft: #E3F1EF;
+    --highlight: #FFF1C2;
+    --focus-ring: #2F80ED;
+
+    /* Risk tokens - Light */
+    --risk-low-bg: #E6F4EA;
+    --risk-low-fg: #1E6B3A;
+    --risk-low-border: #B7DFC3;
+
+    --risk-med-bg: #FFF3D6;
+    --risk-med-fg: #8A5A00;
+    --risk-med-border: #F0D48A;
+
+    --risk-high-bg: #FDE8E6;
+    --risk-high-fg: #B42318;
+    --risk-high-border: #F4B8B2;
+
+    --risk-unverified-bg: #F3F4F6;
+    --risk-unverified-fg: #6B7280;
+    --risk-unverified-border: #D1D5DB;
+  }
+
+  .dark {
+    --background: #0F1715;
+    --surface: #16211F;
+    --surface-muted: #1D2A27;
+    --border: #2A3B37;
+    --text: #E8EFED;
+    --text-muted: #9DB0AB;
+    --primary: #5CC2B8;
+    --primary-foreground: #06211E;
+    --primary-soft: #163632;
+    --highlight: #3E3718;
+    --focus-ring: #5CC2B8;
+
+    /* Risk tokens - Dark */
+    --risk-low-bg: #14301F;
+    --risk-low-fg: #7FD69A;
+    --risk-low-border: #1D4C30;
+
+    --risk-med-bg: #3A2C08;
+    --risk-med-fg: #F2C25B;
+    --risk-med-border: #5A430E;
+
+    --risk-high-bg: #3C1512;
+    --risk-high-fg: #FF9C92;
+    --risk-high-border: #66201B;
+
+    --risk-unverified-bg: #1A2421;
+    --risk-unverified-fg: #8E9F9B;
+    --risk-unverified-border: #2A3B37;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-highlight: var(--highlight);
+  --color-focus-ring: var(--focus-ring);
+
+  --color-risk-low-bg: var(--risk-low-bg);
+  --color-risk-low-fg: var(--risk-low-fg);
+  --color-risk-low-border: var(--risk-low-border);
+
+  --color-risk-med-bg: var(--risk-med-bg);
+  --color-risk-med-fg: var(--risk-med-fg);
+  --color-risk-med-border: var(--risk-med-border);
+
+  --color-risk-high-bg: var(--risk-high-bg);
+  --color-risk-high-fg: var(--risk-high-fg);
+  --color-risk-high-border: var(--risk-high-border);
+
+  --color-risk-unverified-bg: var(--risk-unverified-bg);
+  --color-risk-unverified-fg: var(--risk-unverified-fg);
+  --color-risk-unverified-border: var(--risk-unverified-border);
+}
+
+/* Typography styles */
+.contract-quote {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: var(--surface-muted);
+  border-left: 3px solid var(--primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Custom scrollbars for clean viewer appearance */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

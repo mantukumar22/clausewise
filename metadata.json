@@ -1,0 +1,6 @@
+{
+  "name": "ClauseWise",
+  "description": "GenAI legal-information assistant helping non-experts understand, compare, and question legal documents with citation verification and Indian jurisdiction intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

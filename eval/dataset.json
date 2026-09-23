@@ -1,0 +1,83 @@
+[
+  {
+    "id": "test_case_1",
+    "name": "Pune 11-Month Leave & License Agreement",
+    "docType": "leave_and_license",
+    "jurisdictionState": "Maharashtra",
+    "filePath": "public/samples/pune_rental_agreement.txt",
+    "expectedRiskyClauses": [
+      "10% automatic rent escalation",
+      "tenant-only lock-in with 2 months penalty",
+      "security deposit with no refund timeline",
+      "unilateral landlord termination on 15 days notice",
+      "unrestricted landlord entry at any time",
+      "unilateral appointment of sole arbitrator by landlord"
+    ],
+    "expectedMissingProtections": [
+      "Security deposit refund timeline",
+      "Prior written notice for landlord inspection",
+      "Stamp duty / e-stamping registration reference"
+    ]
+  },
+  {
+    "id": "test_case_2",
+    "name": "Revised Leave & License Agreement (Renewal Proposal)",
+    "docType": "leave_and_license",
+    "jurisdictionState": "Maharashtra",
+    "filePath": "public/samples/pune_rental_agreement_v2_revised.txt",
+    "expectedRiskyClauses": ["automatic renewal with 12% fee hike"],
+    "expectedMissingProtections": ["Sub-letting permission terms"]
+  },
+  {
+    "id": "test_case_3",
+    "name": "Bangalore Tech Employment Offer Letter",
+    "docType": "employment_offer",
+    "jurisdictionState": "Karnataka",
+    "filePath": "public/samples/tech_offer_letter.txt",
+    "expectedRiskyClauses": [
+      "12-month service bond of ₹2,00,000",
+      "90-day notice with company unilateral buyout waiver",
+      "24-month post-employment non-compete across India",
+      "forfeiture of accrued variable pay on resignation",
+      "sole arbitrator nominated by Company Managing Director"
+    ],
+    "expectedMissingProtections": [
+      "Employee notice buyout option",
+      "Provident fund and statutory gratuity disclosure"
+    ]
+  },
+  {
+    "id": "test_case_4",
+    "name": "Mumbai Personal Loan Agreement",
+    "docType": "loan_agreement",
+    "jurisdictionState": "Maharashtra",
+    "filePath": "public/samples/personal_loan_agreement.txt",
+    "expectedRiskyClauses": [
+      "omission of Key Fact Statement (KFS)",
+      "5% foreclosure penalty on floating rate loan",
+      "compounding 36% penal interest on overdue EMIs",
+      "unrestricted third-party debt recovery agent dispatch",
+      "unconditional consent to share contact list and phone data"
+    ],
+    "expectedMissingProtections": [
+      "Key Fact Statement (KFS)",
+      "Advance cure notice prior to default acceleration"
+    ]
+  },
+  {
+    "id": "test_case_5",
+    "name": "Commercial Non-Disclosure & Professional Services Agreement",
+    "docType": "general_agreement",
+    "jurisdictionState": "Delhi NCR",
+    "filePath": "public/samples/commercial_nda_vendor.txt",
+    "expectedRiskyClauses": [
+      "unilateral right to alter service specifications",
+      "unlimited customer indemnity for cloud outages",
+      "distant court jurisdiction in Guwahati"
+    ],
+    "expectedMissingProtections": [
+      "Mutual limitation of liability cap",
+      "Payment timeline and dispute escalation mechanism"
+    ]
+  }
+]

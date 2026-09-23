@@ -1,0 +1,15 @@
+MUTUAL NON-DISCLOSURE AND PROFESSIONAL SERVICES AGREEMENT
+
+This Agreement is made on 10/10/2024 at New Delhi by and between:
+CloudMatrix Solutions LLP ("Client") and Zenith Tech Systems Pvt Ltd ("Vendor").
+
+TERMS:
+1. Scope: Vendor shall provide cloud migration and database development services.
+2. Confidentiality: Confidential information shall be held in trust for a period of 5 years following disclosure.
+3. Unilateral Alteration: Vendor reserves the unilateral right to revise service milestones, hourly billing rates, and delivery specifications upon 7 days' electronic notice.
+4. Unlimited Customer Indemnity: Client shall defend, indemnify, and hold harmless Vendor against any and all claims, indirect damages, loss of business, or data corruption arising from third-party cloud outages.
+5. Dispute Resolution: All disputes shall be subject to the exclusive jurisdiction of the district courts in Guwahati, Assam, and Indian law shall apply.
+6. Execution: Signed on plain letterhead without stamp paper or notarization.
+
+For CloudMatrix Solutions LLP            For Zenith Tech Systems Pvt Ltd
+(Authorized Partner)                    (Director)
