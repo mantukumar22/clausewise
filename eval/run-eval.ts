@@ -70,38 +70,18 @@ async function runEvaluation() {
 
     if (apiKey) {
       try {
-        const ai = getGeminiClient();
-        const model = getGeminiModel();
-        const prompt = buildAnalyzePrompt({
+        const { analyzeDocumentService } = await import('../lib/services/analyzeService');
+        const analyzed = await analyzeDocumentService({
           documentText: docText,
-          documentType: tc.docType,
+          documentType: tc.docType as IndiaDocType,
           jurisdictionState: tc.jurisdictionState,
           language: 'English',
         });
 
-        const resp = await generateContentWithRetry({
-          model,
-          contents: prompt,
-          config: {
-            systemInstruction: SYSTEM_BASE,
-            temperature: 0.2,
-            responseMimeType: 'application/json',
-          },
-        });
-
-        const clean = (resp.text || '')
-          .trim()
-          .replace(/^```json\s*/i, '')
-          .replace(/\s*```$/i, '');
-        const parsed = JSON.parse(clean);
-        const validated = AnalyzeResultSchema.safeParse(parsed);
-
-        if (validated.success) {
-          clausesFound = validated.data.clauses;
-          const check = verifyQuotes(validated.data.clauses, docText);
-          totalCitations = check.report.totalCitations;
-          verifiedCitations = check.report.verifiedCount;
-        }
+        clausesFound = analyzed.clauses;
+        const check = verifyQuotes(analyzed.clauses, docText);
+        totalCitations = check.report.totalCitations;
+        verifiedCitations = check.report.verifiedCount;
       } catch (err: unknown) {
         const errorMsg = err instanceof Error ? err.message : String(err);
         console.error(`Error analyzing ${tc.id}:`, errorMsg);

@@ -205,11 +205,12 @@ export const AnalyzeApiRequestSchema = z.object({
   documentType: DocTypeEnum.default('leave_and_license'),
   jurisdictionState: z.string().default('Maharashtra'),
   language: z.string().default('English'),
-  isScanned: z.boolean().default(false),
+  isScanned: z.boolean().optional().default(false),
   fileName: z.string().optional().default('document.pdf'),
 });
 
-export type AnalyzeApiRequest = z.infer<typeof AnalyzeApiRequestSchema>;
+export type AnalyzeApiRequest = z.input<typeof AnalyzeApiRequestSchema>;
+export type AnalyzeApiRequestParsed = z.output<typeof AnalyzeApiRequestSchema>;
 
 // --- COMPARE SCHEMAS ---
 

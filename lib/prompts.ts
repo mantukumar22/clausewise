@@ -105,7 +105,106 @@ INSTRUCTIONS:
 11. WhatsApp Summary:
     A concise, friendly WhatsApp message (under 1000 characters) in ${params.language} summarizing key terms, rent/deposit, and warning flags with bullet points and emojis for easy sharing with family.
 
-OUTPUT FORMAT: Return valid JSON adhering strictly to the required schema.
+MANDATORY JSON OUTPUT STRUCTURE:
+Return a single valid JSON object with EXACTLY these top-level keys:
+{
+  "isLegalDocument": true,
+  "plainSummary": {
+    "whatAmIAgreeingTo": "string (under 150 words)",
+    "parties": {
+      "userRole": "string",
+      "userName": "string",
+      "counterpartyRole": "string",
+      "counterpartyName": "string"
+    },
+    "termDuration": "string",
+    "moneyObligations": "string",
+    "terminationConditions": "string"
+  },
+  "formalitiesCheck": {
+    "stampDutyOrEStamp": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "registration": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "witnesses": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "notarization": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "signaturesOfAllParties": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "panAadhaarReferences": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" },
+    "datedExecution": { "status": "found|not_found|unclear", "details": "string", "practicalAdvice": "string" }
+  },
+  "rentalMathExtracted": {
+    "monthlyRent": 28000,
+    "securityDeposit": 84000,
+    "escalationPercent": 10,
+    "termMonths": 11,
+    "formattedRent": "₹28,000",
+    "formattedDeposit": "₹84,000"
+  },
+  "inconsistencies": [
+    {
+      "id": "inc-1",
+      "title": "string",
+      "description": "string",
+      "type": "clause_contradiction",
+      "quoteA": "verbatim text or placeholder",
+      "pageA": 1,
+      "quoteB": "conflicting verbatim text",
+      "pageB": 1,
+      "severity": "high",
+      "whatToAskToClarify": "string"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "c-1",
+      "title": "string",
+      "verbatimQuote": "EXACT verbatim quote from the text",
+      "pageNumber": 1,
+      "plainExplanation": "string",
+      "risk": "low|medium|high",
+      "whyItMatters": "string",
+      "category": "payment|termination|renewal|liability|penalties|privacy|dispute-resolution|other"
+    }
+  ],
+  "missingProtections": [
+    {
+      "id": "mp-1",
+      "topic": "string",
+      "whyExpected": "string",
+      "practicalRisk": "string",
+      "recommendation": "string"
+    }
+  ],
+  "keyDatesAndDeadlines": [
+    {
+      "id": "kd-1",
+      "event": "string",
+      "dateOrTimeline": "string",
+      "actionRequired": "string",
+      "consequenceIfMissed": "string",
+      "pageNumber": 1
+    }
+  ],
+  "actionChecklist": [
+    {
+      "id": "ac-1",
+      "phase": "before_signing|during_term|at_termination",
+      "item": "string",
+      "details": "string",
+      "criticality": "must_do|recommended|optional"
+    }
+  ],
+  "questionsToAsk": [
+    {
+      "id": "q-1",
+      "priority": "high|medium|low",
+      "question": "string",
+      "askTo": "lawyer|counterparty|both",
+      "contextAndTalkingPoint": "string"
+    }
+  ],
+  "whatsappSummary": "string"
+}
+
+OUTPUT FORMAT: Return ONLY the valid JSON object adhering strictly to the above keys and structure.
 `.trim();
 }
 
